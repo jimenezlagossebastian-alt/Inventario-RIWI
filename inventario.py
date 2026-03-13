@@ -1,9 +1,9 @@
 # inventario.py
 
-# pedir nombre del producto
+# Solicitar el nombre del producto (tipo string)
 nombre = input("Ingrese el nombre del producto: ")
 
-# pedir precio (float) con validación
+# Solicitar el precio del producto con validación
 while True:
     try:
         precio = float(input("Ingrese el precio del producto: "))
@@ -11,7 +11,7 @@ while True:
     except ValueError:
         print("Error: Debe ingresar un número válido para el precio.")
 
-# pedir cantidad (int) con validación
+# Solicitar la cantidad del producto con validación
 while True:
     try:
         cantidad = int(input("Ingrese la cantidad del producto: "))
@@ -19,8 +19,13 @@ while True:
     except ValueError:
         print("Error: Debe ingresar un número entero válido para la cantidad.")
 
-# mostrar los datos ingresados
-print("\nProducto registrado:")
-print("Nombre:", nombre)
-print("Precio:", precio)
-print("Cantidad:", cantidad)
+# Calcular el costo total multiplicando precio por cantidad
+costo_total = precio * cantidad
+
+# Mostrar los resultados en la consola
+print("Producto:", nombre, "| Precio:", precio, "| Cantidad:", cantidad, "| Total:", costo_total)
+
+# Este programa solicita al usuario el nombre, precio y cantidad de un producto.
+# Luego valida que los datos numéricos sean correctos, calcula el costo total
+# multiplicando el precio por la cantidad y finalmente muestra toda la información
+# del producto en la consola.
