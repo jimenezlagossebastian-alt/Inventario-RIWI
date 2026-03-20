@@ -1,0 +1,65 @@
+# 1. Preparamos el inventario (una lista vacía para guardar todo)
+inventario = []
+
+# 2. El bucle "while" hace que el menú se repita una y otra vez
+# Usamos una variable de control (continuar) para saber cuándo parar
+continuar = True
+
+while continuar:
+    # Mostramos el menú en pantalla
+    print("\n--- MENÚ DE INVENTARIO ---")
+    print("1. Agregar producto")
+    print("2. Mostrar inventario")
+    print("3. Calcular estadísticas")
+    print("4. Salir")
+    
+    opcion = input("Elige una opción: ")
+
+    # TASK 1 y 2: Agregar productos con condicionales
+    if opcion == "1":
+        nombre = input("Nombre del producto: ")
+        precio = float(input("Precio: "))
+        cantidad = int(input("Cantidad: "))
+        
+        # Creamos el diccionario (la ficha del producto)
+        producto = {"nombre": nombre, "precio": precio, "cantidad": cantidad}
+        
+        # Lo guardamos en la lista
+        inventario.append(producto)
+        print("Producto guardado.")
+
+    # TASK 3: Mostrar lo que hay en la lista
+    elif opcion == "2":
+        if len(inventario) == 0:
+            print("El inventario está vacío.")
+        else:
+            # El bucle "for" recorre la lista producto por producto
+            for p in inventario:
+                print("Producto:", p["nombre"], "| Precio:", p["precio"], "| Cantidad:", p["cantidad"])
+
+    # TASK 4: Hacer cuentas matemáticas
+    elif opcion == "3":
+        total_dinero = 0
+        total_items = 0
+        
+        for p in inventario:
+            # Multiplicamos precio por cantidad de cada ficha y lo sumamos al total
+            total_dinero = total_dinero + (p["precio"] * p["cantidad"])
+            # Sumamos cuántas unidades hay en total
+            total_items = total_items + p["cantidad"]
+            
+        print("Valor total del inventario: $", total_dinero)
+        print("Cantidad de productos registrados:", total_items)
+
+    # Opción para cerrar el programa
+    elif opcion == "4":
+        print("Saliendo...")
+        continuar = False # Esto rompe el bucle while
+
+    # Si el usuario escribe algo que no es 1, 2, 3 o 4
+    else:
+        print("Error: Esa opción no existe. Intenta de nuevo.")
+
+# Comentario final (Objetivo de la semana):
+# Lograr que la computadora recuerde datos (listas/diccionarios) y aprenda a 
+# tomar decisiones (if) y repetir tareas (while/for) según lo que pida el usuario.
